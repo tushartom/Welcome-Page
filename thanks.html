@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale = 1"
+    />
+    <title>CSS Card Flip</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="maincontainer">
+      <div class="thecard">
+        <div class="thefront">
+          <div class="event-wrapper">
+            <div class="logo">
+              <img src="ICAI-logo.jpg" alt="" />
+            </div>
+            <div class="college-info">
+              <h1 class="college-name">
+                The Institute of Chartered Accountants of India
+              </h1>
+              <p class="department">Department of CSE</p>
+            </div>
+            <span class="welcome-msg">Welcomes You!</span>
+            <div class="event-info">
+              <!-- <h2 class="event-name">Techathon-23</h2> -->
+              <div class="waviy">
+                <span style="--i: 1">G</span>
+                <span style="--i: 2">R</span>
+                <span style="--i: 3">A</span>
+                <span style="--i: 4">N</span>
+                <span style="--i: 5">D</span>
+                <span style="--i: 6"> </span>
+                <span style="--i: 7">O</span>
+                <span style="--i: 8">P</span>
+                <span style="--i: 9">E</span>
+                <span style="--i: 10">N</span>
+                <span style="--i: 11">I</span>
+                <span style="--i: 12">N</span>
+                <span style="--i: 13">G</span>
+              </div>
+              <p class="tagline">
+                Empowering Innovation - Unleash Your Creativity
+              </p>
+            </div>
+            <div class="btn-info">
+              <p class="btn-action">
+                To give the permission to start the event, please click the
+                button below 👇
+              </p>
+              <a href="thanks.html" class="start-btn"
+                ><span class="text">Start the Event 😃</span></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="theback">
+          <div class="logo">
+            <img src="ICAI-logo.jpg" alt="" />
+          </div>
+          <div class="college-info">
+            <h1 class="college-name">
+              The Institute of Chartered Accountants of India
+            </h1>
+            <p class="department">Department of CSE</p>
+          </div>
+          <div class="final-text">
+            <p>Thanks for giving us the permission.</p>
+            <p>Here we begins the journey towards the event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <script>
+      const btn = document.querySelector(".start-btn");
+      const card = document.querySelector(".thecard");
+      const canvas = document.querySelector("#confetti");
+      const jsConfetti = new JSConfetti();
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        card.classList.add("flip");
+        setTimeout(() => {
+          jsConfetti
+            .addConfetti({
+              emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
+            })
+            .then(() => jsConfetti.addConfetti());
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
